@@ -4,11 +4,11 @@
             constructor() {
                 // IMÁGENES PARA EL CARRUSEL - PASTELERÍA ARTÍSTICA
                 this.images = [
-                    './IMG/1.jpeg',
-                    './IMG/2.jpeg',
-                    './IMG/3.jpeg',
-                    './IMG/4.jpeg',
-                    './IMG/5.jpeg',
+                    './IMG/BANNER/1.jpeg',
+                    './IMG/BANNER/2.jpeg',
+                    './IMG/BANNER/3.jpeg',
+                    './IMG/BANNER/4.jpeg',
+                    './IMG/BANNER/5.jpeg',
                 ];
                 
                 this.currentSlide = 0;
