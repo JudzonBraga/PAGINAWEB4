@@ -308,6 +308,9 @@ h4 {
     padding: var(--card-padding);
 }
 
+.card-content h3{
+    margin-bottom: 15px;
+}
 .card-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
@@ -325,7 +328,7 @@ h4 {
 
 .card-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
