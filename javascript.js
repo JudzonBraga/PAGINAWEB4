@@ -379,6 +379,9 @@ class PasteleriaApp {
 
 // ===== SLIDER DE SHOP =====
 // Lógica para manejar múltiples carruseles infinitos
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("imgFullSize");
+        const closeBtn = document.getElementById("closeBtn");
         const carousels = document.querySelectorAll('.carousel-container');
 
         carousels.forEach((carousel) => {
@@ -390,58 +393,54 @@ class PasteleriaApp {
             let isTransitioning = false;
             let index = originalCards.length; // Posición inicial después de los clones
 
-            // 1. Clonación de elementos (clonamos el set completo para asegurar el loop)
+             // 1. CLONACIÓN INFINITA
             originalCards.forEach(card => {
-                const cloneNext = card.cloneNode(true);
-                const clonePrev = card.cloneNode(true);
-                track.appendChild(cloneNext);
-                track.insertBefore(clonePrev, track.firstChild);
+                track.appendChild(card.cloneNode(true));
+                track.insertBefore(card.cloneNode(true), track.firstChild);
             });
 
-            // 2. Función para mover el riel
             const updatePosition = (smooth = true) => {
                 const cardWidth = track.querySelector('.product-card').getBoundingClientRect().width;
                 track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
                 track.style.transform = `translateX(-${index * cardWidth}px)`;
             };
 
-            // 3. Listeners para botones
+            // 2. EVENTO CLICK PARA EL MODAL (Delegación de eventos para capturar clones)
+            track.addEventListener('click', (e) => {
+                if(e.target.classList.contains('zoomable')) {
+                    modal.style.display = "flex";
+                    modalImg.src = e.target.src;
+                }
+            });
+
+            // 3. NAVEGACIÓN
             nextBtn.addEventListener('click', () => {
                 if (isTransitioning) return;
-                isTransitioning = true;
-                index++;
-                updatePosition();
+                isTransitioning = true; index++; updatePosition();
             });
 
             prevBtn.addEventListener('click', () => {
                 if (isTransitioning) return;
-                isTransitioning = true;
-                index--;
-                updatePosition();
+                isTransitioning = true; index--; updatePosition();
             });
 
-            // 4. Reset invisible para efecto infinito fluido
             track.addEventListener('transitionend', () => {
                 isTransitioning = false;
                 const totalOriginals = originalCards.length;
-
-                // Si llegamos al final del segundo set (clones finales)
-                if (index >= totalOriginals * 2) {
-                    index = totalOriginals;
-                    updatePosition(false);
-                }
-                // Si llegamos al inicio del primer set (clones iniciales)
-                if (index < totalOriginals) {
-                    index = totalOriginals * 2 - 1;
-                    updatePosition(false);
-                }
+                if (index >= totalOriginals * 2) { index = totalOriginals; updatePosition(false); }
+                if (index < totalOriginals) { index = totalOriginals * 2 - 1; updatePosition(false); }
             });
 
-            // Inicialización de posición sin animación
             window.addEventListener('load', () => updatePosition(false));
             window.addEventListener('resize', () => updatePosition(false));
         });
 
+        // 4. CERRAR MODAL
+        closeBtn.onclick = () => modal.style.display = "none";
+        window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; 
+            
+        };
+    
 
 
 // ===== SLIDER DE TRADICIÓN =====
