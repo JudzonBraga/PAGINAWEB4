@@ -1953,6 +1953,7 @@
 
         .footer-schedule {
             list-style: none;
+            padding: 0;
         }
 
         .footer-schedule li {
