@@ -2220,6 +2220,25 @@ th {
 .fa-chevron-up:before {
     content: "\f077";
 }
+
+.filter-group .filter-btn {
+    position: relative;
+    overflow: visible;
+    background: var(--light-pink);
+    border: 2px solid transparent;
+    color: var(--dark-text);
+    padding: 10px;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+}
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1200px) {
             .specialties-grid,
