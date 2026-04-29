@@ -2224,6 +2224,10 @@ th {
 .filter-btn.extra-btn {
     display: none;
 }
+
+.filter-group.expanded .filter-btn.extra-btn {
+    display: flex;
+}
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1200px) {
             .specialties-grid,
