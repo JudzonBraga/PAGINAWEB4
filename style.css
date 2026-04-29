@@ -2109,9 +2109,6 @@
     color: var(--dark-text);
     line-height: 1.7;
 }
-.section-legal-p ul {
-    margin: 0 0 10px 35px;
-}
 ul {
     display: block;
     list-style-type: disc;
