@@ -83,6 +83,29 @@ function showContent(contentNumber) {
     }
 }
 
+// ===== FUNCIÓN PARA EXPANDIR LAS OPCINES DE LOS FILTROS - TIENDA  =====
+        function setupToggleMore() {
+            toggleMoreBtn?.addEventListener('click', () => {
+                const isExpanded = filtrosPrincipales?.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    filtrosPrincipales?.classList.remove('expanded');
+                    if (toggleMoreText) toggleMoreText.textContent = 'Ver más';
+                    if (toggleMoreIcon) {
+                        toggleMoreIcon.classList.remove('fa-chevron-up');
+                        toggleMoreIcon.classList.add('fa-chevron-down');
+                    }
+                } else {
+                    filtrosPrincipales?.classList.add('expanded');
+                    if (toggleMoreText) toggleMoreText.textContent = 'Ver menos';
+                    if (toggleMoreIcon) {
+                        toggleMoreIcon.classList.remove('fa-chevron-down');
+                        toggleMoreIcon.classList.add('fa-chevron-up');
+                    }
+                }
+            });
+        }
+
         // ===== FUNCIÓN PARA EXTRAER PRECIO DE UN TEXTO =====
         function extractPriceFromText(text) {
             if (!text) return 0;
@@ -1535,9 +1558,38 @@ async function loadProductsFromSheets() {
             setupInfiniteScroll();
             setupSearch();
             setupFiltersToggle();
+            setupToggleMore();
             
             // Mostrar contenido 1 por defecto
             showContent(1);
             
             console.log('Dulce Fantasía Bakery - Cargado correctamente con Google Sheets y doble contenido');
         });
+
+// ===== PREGUNTAS FRECUENTES =====
+document.addEventListener('DOMContentLoaded', function () {
+    // Seleccionar todos los elementos de pregunta
+    const faqItems = document.querySelectorAll('.faq-item');
+    // Agregar evento click a cada pregunta
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Si el item clickeado ya está activo, solo lo cerramos
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+            } else {
+                // Cerrar todos los otros items abiertos
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Abrir el item clickeado
+                item.classList.add('active');
+            }
+        });
+    });
+    // Opcional: Abrir la primera pregunta por defecto
+    faqItems[0].classList.add('active');
+});
+
