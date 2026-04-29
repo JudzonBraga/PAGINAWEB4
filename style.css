@@ -2125,7 +2125,54 @@
     text-align: start !important;
     text-align-last: auto !important;
 }
-
+.section-legal-p table {
+    max-width: 85%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+table {
+    border-collapse: separate;
+    text-indent: initial;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    white-space: normal;
+    font-variant: normal;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+.section-legal-p th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+    unicode-bidi: isolate;
+}
+.btn-whatsapp{
+    padding: 8px 20px !important;
+    font-size: 0.85rem !important;
+    background-color: var(--primary-pink) !important;
+    color: var(--white) !important;
+}
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1200px) {
             .specialties-grid,
