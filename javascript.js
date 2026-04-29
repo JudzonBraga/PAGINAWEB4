@@ -38,6 +38,12 @@
         const endMessage = document.getElementById('endMessage');
         const searchInput = document.getElementById('searchInput');
 
+        // Boton para ver todas las categorias
+        const toggleMoreBtn = document.getElementById('toggleMoreBtn');
+        const toggleMoreText = document.getElementById('toggleMoreText');
+        const toggleMoreIcon = document.getElementById('toggleMoreIcon');
+        const filtrosPrincipales = document.getElementById('filtrosPrincipales');
+
         // ===== FUNCIÓN PARA CAMBIAR ENTRE CONTENIDOS CON PROMISE =====
 function showContent(contentNumber) {
     if (contentNumber === 1) {
