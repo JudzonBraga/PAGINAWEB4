@@ -2109,6 +2109,25 @@
     color: var(--dark-text);
     line-height: 1.7;
 }
+.section-legal-p ul {
+    margin: 0 0 10px 35px;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+.section-legal-p ul li {
+    margin-bottom: 5px;
+}
+li {
+    display: list-item;
+    unicode-bidi: isolate;
+    list-style-position: inside;
+}
 .faq-answer ul, .faq-answer ol {
     padding-left: 20px;
     margin-bottom: 15px;
